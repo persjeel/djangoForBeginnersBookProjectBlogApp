@@ -34,8 +34,8 @@ class BlogTests(TestCase):
         self.assertEqual(f'{self.post.body}', 'Nice body content')
 
     def test_post_list_view(self):
-        # check if homepage returns a 200 HTTP status code
         response = self.client.get(reverse('home'))
+        # check if homepage returns a 200 HTTP status code
         self.assertEqual(response.status_code, 200)
         # check if homepage contains text of post
         self.assertContains(response, self.post.title)

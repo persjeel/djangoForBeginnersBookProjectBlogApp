@@ -1,0 +1,14 @@
+{#inherit from base template#}
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>New post</h1>
+{#    form tag with POST method for sending data.#}
+{#    csrf token is used to protect the form from cross-site scripting attacks.#}
+    <form action="" method="post">{% csrf_token %}
+{#    to output our form data we use {{ form.as_p }}, which renders it within paragraph <p> tags   #}
+        {{ form.as_p }}
+{#     specify an input type of submit and assign it the value “Save”#}
+        <input type="submit" value="Save">
+    </form>
+{% endblock content %}
