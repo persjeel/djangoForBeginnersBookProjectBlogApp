@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Edit post</h1>
+    {#    csrf_token for security, form.as_p to display our form fields with paragraph tags#}
+    {# and give it the value “Update on the submit button#}
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock content %}

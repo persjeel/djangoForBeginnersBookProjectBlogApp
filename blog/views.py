@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from .models import Post
 
@@ -19,5 +19,13 @@ class BlogCreateView(CreateView):
     # specified database model, Post
     model = Post
     template_name = 'post_new.html'
-    # specified database fields to expose in form
+    # specified database fields to expose in creation form
     fields = ['title', 'author', 'body']
+
+
+class BlogUpdateView(UpdateView):
+    model = Post
+    template_name = 'post_edit.html'
+    # specified database fields to expose in edit form
+    fields = ['title', 'body']
+
