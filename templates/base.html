@@ -16,6 +16,18 @@
             <a href="{% url 'post_new' %}">+ Create New Blog Post</a>
         </div>
     </header>
+    {% if user.is_authenticated %}
+        <p>Hi, {{ user.username }}! Welcome again!</p>
+        {# logging out via GET request("GET /accounts/logout/ HTTP/1.1") are not supported from v.5.0 #}
+        {# <p><a href="{% url 'logout' %}">Log out</a></p>#}
+        <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Log Out</button>
+        </form>
+    {% else %}
+        <p>You are not logged in. How dare u?!</p>
+        <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
     {% block content %}
     {% endblock content %}
 </div>
